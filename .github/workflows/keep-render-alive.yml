@@ -11,7 +11,14 @@ jobs:
 
     steps:
       - name: Wake Render Apps
-        run: |
-          curl -s https://virtualassistant-wxxq.onrender.com > /dev/null
-          curl -s https://pulsetalk-6lrk.onrender.com/ > /dev/null
-          curl -s https://ecommersebackendshreyash.onrender.com/ > /dev/null
+       run: |
+  echo "===== $(date) ====="
+
+  echo "Virtual Assistant:"
+  curl -o /dev/null -s -w "Status: %{http_code}\n" https://virtualassistant-wxxq.onrender.com
+
+  echo "PulseTalk:"
+  curl -o /dev/null -s -w "Status: %{http_code}\n" https://pulsetalk-6lrk.onrender.com/
+
+  echo "Ecommerce Backend:"
+  curl -o /dev/null -s -w "Status: %{http_code}\n" https://ecommersebackendshreyash.onrender.com/
